@@ -29,7 +29,7 @@ public class Pessoa implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date nascimento;
     
-    @Column(length = 11)
+    @Column(length = 14)
     private String cpf;
     
     @Column(length = 20)
