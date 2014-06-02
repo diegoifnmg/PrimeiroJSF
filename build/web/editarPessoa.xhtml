@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Global.xhtml">
+
+            <ui:define name="content">
+                <p:messages/>
+                <p:panelGrid columns="2">
+                    <f:facet name="header">
+                        Editar Pessoa
+                    </f:facet>
+                    <p:outputLabel value="Nome:" />
+                    <p:inputText value="#{pessoaController.entidade.nome}" 
+                                 required="true" requiredMessage="O campo nome é de preenchimento obrigatório"/>
+                    <p:outputLabel value="Data Nasc.:" />
+                    <p:calendar value="#{pessoaController.entidade.nascimento}" />
+                    <p:outputLabel value="CPF:" />
+                    <p:inputMask value="#{pessoaController.entidade.cpf}" mask="999.999.999-99" />
+                    <p:outputLabel value="RG:" />
+                    <p:inputMask value="#{pessoaController.entidade.rg}" mask="99999999999" />
+
+                    <f:facet name="footer">
+                        <p:commandButton ajax="false" value="Salvar" action="#{pessoaController.salvar()}"/>
+                        <p:commandButton ajax="false" value="Apagar" action="#{pessoaController.salvar()}"/>
+                        <p:commandButton ajax="false" value="Voltar" action="listagemPessoa.xhtml"/>
+                    </f:facet>
+                </p:panelGrid>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
