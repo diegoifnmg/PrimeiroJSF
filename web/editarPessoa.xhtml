@@ -10,7 +10,7 @@
         <ui:composition template="./Global.xhtml">
 
             <ui:define name="content">
-                <p:messages/>
+                <p:growl id="mensagens" />
                 <p:panelGrid columns="2">
                     <f:facet name="header">
                         Editar Pessoa
@@ -26,11 +26,24 @@
                     <p:inputMask value="#{pessoaController.entidade.rg}" mask="99999999999" />
 
                     <f:facet name="footer">
-                        <p:commandButton ajax="false" value="Salvar" action="#{pessoaController.salvar()}"/>
-                        <p:commandButton ajax="false" value="Apagar" action="#{pessoaController.salvar()}"/>
+                        <p:commandButton value="Salvar" onclick="msgSalvar.show();"/>
+                        <p:commandButton value="Apagar" onclick="msgApagar.show();"/>
                         <p:commandButton ajax="false" value="Voltar" action="listagemPessoa.xhtml"/>
                     </f:facet>
                 </p:panelGrid>
+                
+                <p:confirmDialog message="Deseja realmente salvar as alterações?" header="Confirmação" severity="alert"
+                                 widgetVar="msgSalvar" >
+                    <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
+                    <p:commandButton value="Não" onclick="msgSalvar.hide();" />
+                </p:confirmDialog>
+                
+                <p:confirmDialog message="Deseja realmente apagar o registro?" header="Confirmação" severity="alert"
+                                 widgetVar="msgApagar" >
+                    <p:commandButton ajax="false" value="Sim" action="#{pessoaController.salvar()}"/>
+                    <p:commandButton value="Não" onclick="msgApagar.hide();" />
+                </p:confirmDialog>
+                
             </ui:define>
 
         </ui:composition>
