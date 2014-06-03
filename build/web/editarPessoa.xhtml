@@ -18,6 +18,10 @@
                     <p:outputLabel value="Nome:" />
                     <p:inputText value="#{pessoaController.entidade.nome}" 
                                  required="true" requiredMessage="O campo nome é de preenchimento obrigatório"/>
+                    <p:outputLabel value="Função:" />
+                    <p:selectOneMenu value="#{pessoaController.entidade.funcao}" converter="#{funcaoConverter}">
+                        <f:selectItems value="#{funcaoController.listagem}" />
+                    </p:selectOneMenu>
                     <p:outputLabel value="Data Nasc.:" />
                     <p:calendar value="#{pessoaController.entidade.nascimento}" />
                     <p:outputLabel value="CPF:" />
