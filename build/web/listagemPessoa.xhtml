@@ -26,7 +26,15 @@
                     <p:column sortBy="nome" headerText="Nome">
                         #{item.nome}
                     </p:column>
+                    
+                    <p:column headerText="CPF">
+                        #{item.cpf}
+                    </p:column>
 
+                    <p:column headerText="RG">
+                        #{item.rg}
+                    </p:column>
+                    
                     <p:column>
                         <p:commandButton value="Editar" action="editarPessoa.xhtml">
                             <f:setPropertyActionListener target="#{pessoaController.entidade}" value="#{item}"/>
