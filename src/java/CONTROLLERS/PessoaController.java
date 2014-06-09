@@ -38,6 +38,12 @@ public class PessoaController implements Serializable {
         filtro = new Pessoa();
     }
     
+    public List<Pessoa> autoCompletar(String texto){
+        Pessoa tmp = new Pessoa();
+        tmp.setNome(texto);
+        return dao.Buscar(tmp);
+    }
+    
     public void filtrar(){
         listagem = dao.Buscar(filtro);
     }

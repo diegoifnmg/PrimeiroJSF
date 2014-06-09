@@ -39,6 +39,10 @@ public class Pessoa implements Serializable {
     
     @Column(length = 20)
     private String rg;
+    
+    public Pessoa() {
+        id = 0L;
+    }
 
     public Long getId() {
         return id;

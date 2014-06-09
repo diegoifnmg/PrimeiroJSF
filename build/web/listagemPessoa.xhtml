@@ -13,6 +13,16 @@
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Nome"/>
                     <p:inputText value="#{pessoaController.filtro.nome}"/>
+                    <p:outputLabel value="Auto-completar"/>
+                    <p:autoComplete converter="#{pessoaConverter}" value="#{pessoaController.filtro}"
+                                    var="item" itemLabel="#{item.nome}"  completeMethod="#{pessoaController.autoCompletar}">
+                        <p:column headerText="Nome">
+                            #{item.nome}
+                        </p:column>
+                        <p:column headerText="CPF">
+                            #{item.cpf}
+                        </p:column>
+                    </p:autoComplete>
 
                 </p:panelGrid>
                 <p:commandButton value="Filtrar" action="#{pessoaController.filtrar()}" update="listagem"/>
